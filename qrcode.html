@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Generate QR Code</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -8,6 +9,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
+
 <body>
 	<div class="container mt-3">
 		<h1>Generate QR Code</h1>
@@ -27,15 +29,17 @@
 			var qrContent = document.getElementById("qrContent").value;
 
 			// Generate the QR code and display it on the page
+			document.getElementById("qrCode").innerHTML = "";
 			var qrCode = new QRCode(document.getElementById("qrCode"), {
 				text: qrContent,
 				width: 256,
 				height: 256,
-				colorDark : "#000000",
-				colorLight : "#ffffff",
-				correctLevel : QRCode.CorrectLevel.H
+				colorDark: "#000000",
+				colorLight: "#ffffff",
+				correctLevel: QRCode.CorrectLevel.H
 			});
 		}
 	</script>
 </body>
+
 </html>
