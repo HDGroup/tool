@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generate QR Code</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<h1>Generate QR Code</h1>
+		<hr>
+		<p>Enter the content you want to generate a QR code for, then click the button below:</p>
+		<div class="form-group">
+			<label for="qrContent">QR Content:</label>
+			<input type="text" class="form-control" id="qrContent">
+		</div>
+		<button type="button" class="btn btn-primary" onclick="generateQRCode()">Generate</button>
+		<hr>
+		<div id="qrCode"></div>
+	</div>
+	<script>
+		function generateQRCode() {
+			// Get the QR content from the HTML input field
+			var qrContent = document.getElementById("qrContent").value;
+
+			// Generate the QR code and display it on the page
+			var qrCode = new QRCode(document.getElementById("qrCode"), {
+				text: qrContent,
+				width: 256,
+				height: 256,
+				colorDark : "#000000",
+				colorLight : "#ffffff",
+				correctLevel : QRCode.CorrectLevel.H
+			});
+		}
+	</script>
+</body>
+</html>
