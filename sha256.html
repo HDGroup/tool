@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SHA256值计算器</title>
+    <!-- 引入Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">SHA256值计算器</h1>
+        <div class="form-group">
+            <label for="inputString">请输入要计算的字符串：</label>
+            <input type="text" class="form-control" id="inputString">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateSha256()">计算SHA256值</button>
+        <div class="form-group mt-4">
+            <label for="outputSha256">SHA256值：</label>
+            <input type="text" class="form-control" id="outputSha256" readonly>
+        </div>
+    </div>
+    <!-- 引入jQuery和Bootstrap的JavaScript -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <!-- 引入CryptoJS -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        function calculateSha256() {
+            var inputString = document.getElementById("inputString").value;
+            var hash = CryptoJS.SHA256(inputString).toString(CryptoJS.enc.Hex);
+            document.getElementById("outputSha256").value = hash;
+        }
+    </script>
+</body>
+
+</html>
