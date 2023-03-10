@@ -1,5 +1,7 @@
-console.log(module);
-// https://nodejs.org/docs/latest-v18.x/api/
-const os = require('os');
+const bip39 = require('bip39')
 
-console.log(os.totalmem()/1024/1024/1024);
+const mnemonic = bip39.generateMnemonic();
+console.log(mnemonic);
+
+const mnemonic2 = bip39.entropyToMnemonic('0000000000000000000000000000000000000000000000000000000000000000')
+console.log(mnemonic2);

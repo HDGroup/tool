@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>生成比特币助记词</title>
+    <!-- 引入 Bootstrap 样式文件 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">生成比特币助记词</h1>
+        <p class="lead">点击下面的按钮以生成一个 12 个单词的助记词短语。</p>
+        <button id="generate-btn" class="btn btn-primary">生成助记词</button>
+        <div class="mt-5">
+            <label for="mnemonic-phrase">助记词列表</label>
+            <input type="text" id="mnemonic-phrase" readonly>
+        </div>
+    </div>
+    <!-- 引入 Bootstrap JavaScript 文件 -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- 引入 bip39 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bip39@3.1/src/index.min.js"></script>
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const mnemonicPhrase = document.getElementById('mnemonic-phrase');
+
+        // 生成比特币助记词
+        generateBtn.addEventListener('click', () => {
+            const entropy = bip39.generateMnemonic().split(' ');
+            mnemonicPhrase.textContent = `助记词: ${entropy.join(' ')}`;
+        });
+    </script>
+</body>
+
+</html>
